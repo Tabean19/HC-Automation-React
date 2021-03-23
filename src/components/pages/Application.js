@@ -29,7 +29,11 @@ export const Application = ({ match }) => {
       <div className='application-container'>
         {browser_image ? (
           <div className='image-container'>
-            <img src={browser_image} alt={name} className='app-img' />
+            <img
+              src={`${process.env.REACT_APP_API_IMAGE_URI}${browser_image}`}
+              alt={name}
+              className='app-img'
+            />
           </div>
         ) : (
           <div className='image-container'>

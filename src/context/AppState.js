@@ -1,13 +1,7 @@
 import React, { useReducer } from 'react';
 import AppContext from './appContext';
 import AppReducer from './appReducer';
-import {
-  SET_ACTIVE,
-  SET_LOADING,
-  GET_APPS,
-  CLEAR_ACTIVE,
-  TOGGLE_APP,
-} from '../types';
+import { SET_ACTIVE, SET_LOADING, GET_APPS, CLEAR_ACTIVE } from '../types';
 
 const AppState = (props) => {
   const initialState = {
@@ -39,15 +33,17 @@ const AppState = (props) => {
   const setActiveApp = (app) => {
     dispatch({ type: SET_ACTIVE, payload: app });
   };
-  //set is_running to application state
-  const setRun = (env, site, app) => {
-    const obj = {
-      env: env,
-      site: site,
-      app: app,
+  //post changes in running to API
+  const postChange = async (data) => {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     };
-
-    dispatch({ type: TOGGLE_APP, payload: obj });
+    const res = await fetch('api/appsrunning', options);
+    return res.json();
   };
   //Set Loading
   const setLoading = () => dispatch({ type: SET_LOADING });
@@ -63,7 +59,7 @@ const AppState = (props) => {
         getApps,
         setActiveApp,
         clearActiveApp,
-        setRun,
+        postChange,
       }}
     >
       {props.children}

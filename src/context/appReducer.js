@@ -1,10 +1,4 @@
-import {
-  SET_ACTIVE,
-  SET_LOADING,
-  GET_APPS,
-  CLEAR_ACTIVE,
-  TOGGLE_APP,
-} from '../types';
+import { SET_ACTIVE, SET_LOADING, GET_APPS, CLEAR_ACTIVE } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -19,11 +13,6 @@ export default (state, action) => {
         ...state,
         active_application: action.payload,
       };
-    // case TOGGLE_APP:
-    //   return {
-    //     ...state,
-    //     results:
-    //   };
     case CLEAR_ACTIVE:
       return {
         ...state,

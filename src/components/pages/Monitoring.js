@@ -10,6 +10,9 @@ export const Monitoring = () => {
     if (!results) {
       getApps();
     }
+    const timer = setInterval(() => {
+      getApps();
+    }, 30000);
   }, []);
 
   return (
