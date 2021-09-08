@@ -1,5 +1,12 @@
 export const TOGGLE_APP = 'TOGGLE_APP';
 export const GET_APPS = 'GET_APPS';
+export const GET_HIST = 'GET_HIST';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ACTIVE = 'SET_ACTIVE';
 export const CLEAR_ACTIVE = 'CLEAR_ACTIVE';
+export const CLEAR_HIST = 'CLEAR_HIST';
+export const GET_SCRIPTS = 'GET_SCRIPTS'
+export const TOGGLE_SCRIPT = 'TOGGLE_SCRIPT'
+export const GET_SURVEY = 'GET_SURVEY'
+export const GET_CONFIGS = 'GET_CONFIGS'
+export const SEARCH_APPS = 'SEARCH_APPS'

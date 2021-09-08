@@ -4,12 +4,13 @@ import AppContext from '../../context/appContext';
 
 export const Provisioning = () => {
   const appContext = useContext(AppContext);
-  const { getApps, results } = appContext;
+  const { getApps, results, getConfigs } = appContext;
 
   useEffect(() => {
-    if (!results) {
+   
       getApps();
-    }
+      getConfigs();
+    
   }, []);
 
   return (
@@ -23,6 +24,10 @@ export const Provisioning = () => {
       <div className='shared-container'>
         <ProvisionItem env={'Shared'} site={'Beaverton'} />
         <ProvisionItem env={'Shared'} site={'Smyrna'} />
+      </div>
+      <h2>MISC</h2>
+      <div className="shared-container">
+        <ProvisionItem env={"Misc"} site={"Misc"} />
       </div>
     </div>
   );

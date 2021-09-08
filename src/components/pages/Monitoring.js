@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from 'react';
-import ResultItem from '../results/ResultItem';
-import AppContext from '../../context/appContext';
+import React, { useContext, useEffect } from "react";
+import ResultItem from "../results/ResultItem";
+import AppContext from "../../context/appContext";
 
 export const Monitoring = () => {
   const appContext = useContext(AppContext);
-  const { getApps, results } = appContext;
+  const { results, getApps } = appContext;
 
   useEffect(() => {
     if (!results) {
@@ -15,19 +15,27 @@ export const Monitoring = () => {
     }, 30000);
   }, []);
 
+ 
+
   return (
-    <div className='container'>
+    
+    <div className="container">
       <h2>ECC</h2>
-      <div className='ecc-container'>
-        <ResultItem env={'ECC'} site={'Beaverton'} />
-        <ResultItem env={'ECC'} site={'Smyrna'} />
+      <div className="ecc-container">
+        <ResultItem env={"ECC"} site={"Beaverton"} />
+        <ResultItem env={"ECC"} site={"Smyrna"} />
       </div>
       <h2>SHARED</h2>
-      <div className='shared-container'>
-        <ResultItem env={'Shared'} site={'Beaverton'} />
-        <ResultItem env={'Shared'} site={'Smyrna'} />
+      <div className="shared-container">
+        <ResultItem env={"Shared"} site={"Beaverton"} />
+        <ResultItem env={"Shared"} site={"Smyrna"} />
+      </div>
+      <h2>MISC</h2>
+      <div className="shared-container">
+        <ResultItem env={"Misc"} site={"Misc"} />
       </div>
     </div>
+   
   );
 };
 
